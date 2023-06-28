@@ -11,23 +11,22 @@ public class NormalTank extends Tank {
         super(xPos, yPos, health, direction, firePower);
     }
 
+    public static Image image;
+
+    public static Image getImage() {
+        return image;
+    }
+
     @Override
     public void draw(GraphicsContext gc) {
-        gc.clearRect(0,0,800,800);
-        gc.drawImage(imageLoader(),getxPos(),getyPos(),36,36);
-    }
-
-    public Image imageLoader() {
-        String address = null;
         switch (getDirection()) {
-            case UP -> address = "object_8.png";
-            case DOWN -> address = "object_12.png";
-            case LEFT -> address = "object_10.png";
-            case RIGHT -> address = "object_14.png";
+            case UP -> image = new Image("file:object_8.png");
+            case DOWN -> image = new Image("file:object_12.png");
+            case LEFT -> image = new Image("file:object_10.png");
+            case RIGHT -> image = new Image("file:object_14.png");
         }
-        File file=new File(address);
-        String address2=file.toURI().toString();
-        return  new javafx.scene.image.Image(address2);
-
+        gc.drawImage(getImage(), getxPos(), getyPos(), 36, 36);
     }
+
+
 }

@@ -1,11 +1,12 @@
 package ir.ac.kntu.GameObject.Tank;
 
 import ir.ac.kntu.Constants.Direction;
+import ir.ac.kntu.GameObject.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 
 import javax.swing.text.html.ImageView;
 
-public  abstract class Tank {
+public  abstract class Tank extends GameObject {
     private double xPos;
     private double yPos;
     private int health;

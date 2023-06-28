@@ -16,7 +16,7 @@ public class PlayerTank extends Tank{
 
     @Override
     public void draw(GraphicsContext gc) {
-        System.out.println(getDirection());
+
         switch (getDirection()) {
             case UP -> image =new Image("file:object_1.png");
             case DOWN -> image =new Image ("file:object_4.png");
