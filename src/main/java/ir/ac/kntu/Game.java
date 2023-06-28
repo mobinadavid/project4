@@ -7,6 +7,7 @@ import ir.ac.kntu.GameObject.GameObject;
 import ir.ac.kntu.GameObject.Tank.ArmoredTank;
 import ir.ac.kntu.GameObject.Tank.NormalTank;
 import ir.ac.kntu.GameObject.Tank.PlayerTank;
+import ir.ac.kntu.GameObject.wall.BrickWall;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -47,11 +48,15 @@ public class Game extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         NormalTank normalTank = new NormalTank(10, 10, 1, Direction.RIGHT, 1);
-        ArmoredTank armoredTank = new ArmoredTank(50, 50, 2, Direction.LEFT, 2);
+        ArmoredTank armoredTank = new ArmoredTank(100, 10, 2, Direction.DOWN, 2);
+        BrickWall brickWall=new BrickWall(400-18,400-36,1);
+        BrickWall brickWall1=new BrickWall(400-18,400-72,1);
+        gameObjects.add(brickWall1);
         gameObjects.add(normalTank);
         gameObjects.add(playerTank);
-        normalTank.draw(gc);
-        playerTank.draw(gc);
+        gameObjects.add(armoredTank);
+        gameObjects.add(brickWall);
+        draw(gc);
         Group root = new Group();
         root.getChildren().add(canvas);
         Scene scene = new Scene(root, Color.BLACK);
@@ -79,6 +84,10 @@ public class Game extends Application {
             }
             if (gameObject instanceof ArmoredTank) {
                 ((ArmoredTank) gameObject).draw(gc);
+            }
+
+            if (gameObject instanceof BrickWall) {
+                ((BrickWall) gameObject).draw(gc);
             }
 
         }
