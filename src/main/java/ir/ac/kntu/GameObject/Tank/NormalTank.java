@@ -1,6 +1,7 @@
 package ir.ac.kntu.GameObject.Tank;
 
 import ir.ac.kntu.Constants.Direction;
+import ir.ac.kntu.Constants.GlobalConstants;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -27,6 +28,27 @@ public class NormalTank extends Tank {
         }
         gc.drawImage(getImage(), getxPos(), getyPos(), 36, 36);
     }
+    public void move(int step, Direction direction) {
+        setDirection(direction);
+        switch (direction) {
+            case RIGHT -> setxPos(getxPos() + step);
+            case LEFT -> setxPos(getxPos() - step);
+            case UP -> setyPos(getyPos() - step);
+            case DOWN -> setyPos(getyPos() + step);
 
+        }
+        if (getxPos() < 0) {
+            setxPos(0);
+        }
+        if (getxPos() + 36 > GlobalConstants.CANVAS_HEIGHT) {
+            setxPos(GlobalConstants.CANVAS_WIDTH - 36);
+        }
+        if (getyPos() + 36 > GlobalConstants.CANVAS_HEIGHT) {
+            setyPos(GlobalConstants.CANVAS_HEIGHT - 36);
+        }
+        if (getyPos() < 0) {
+            setyPos(0);
+        }
+    }
 
 }

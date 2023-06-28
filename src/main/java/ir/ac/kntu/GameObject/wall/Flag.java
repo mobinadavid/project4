@@ -28,6 +28,7 @@ public class Flag extends GameObject {
     public void setyPos(double yPos) {
         this.yPos = yPos;
     }
+
     public void draw(GraphicsContext gc) {
         image = new Image("file:object_69.png");
         gc.drawImage(getImage(), getxPos(), getyPos(), 30, 40);
