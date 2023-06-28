@@ -8,6 +8,8 @@ import ir.ac.kntu.GameObject.Tank.ArmoredTank;
 import ir.ac.kntu.GameObject.Tank.NormalTank;
 import ir.ac.kntu.GameObject.Tank.PlayerTank;
 import ir.ac.kntu.GameObject.wall.BrickWall;
+import ir.ac.kntu.GameObject.wall.Flag;
+import ir.ac.kntu.GameObject.wall.MetalWall;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -50,12 +52,24 @@ public class Game extends Application {
         NormalTank normalTank = new NormalTank(10, 10, 1, Direction.RIGHT, 1);
         ArmoredTank armoredTank = new ArmoredTank(100, 10, 2, Direction.DOWN, 2);
         BrickWall brickWall=new BrickWall(400-18,400-36,1);
-        BrickWall brickWall1=new BrickWall(400-18,400-72,1);
+        BrickWall brickWall1=new BrickWall(400-18,400-72-36,1);
+        MetalWall metalWall=new MetalWall(400-18,400-72,234567);
+        BrickWall brickWall2=new BrickWall(400-18-36,400-72,1);
+        BrickWall brickWall3=new BrickWall(400-18-72,400-36,1);
+        BrickWall brickWall4=new BrickWall(400-18-72,400-72-36,1);
+        MetalWall metalWall2=new MetalWall(400-18-72,400-72,234567);
+        Flag flag=new Flag(400-18-36,800-40);
         gameObjects.add(brickWall1);
         gameObjects.add(normalTank);
         gameObjects.add(playerTank);
         gameObjects.add(armoredTank);
         gameObjects.add(brickWall);
+        gameObjects.add(brickWall2);
+        gameObjects.add(metalWall);
+        gameObjects.add(metalWall2);
+        gameObjects.add(brickWall3);
+        gameObjects.add(brickWall4);
+        gameObjects.add(flag);
         draw(gc);
         Group root = new Group();
         root.getChildren().add(canvas);
@@ -88,6 +102,12 @@ public class Game extends Application {
 
             if (gameObject instanceof BrickWall) {
                 ((BrickWall) gameObject).draw(gc);
+            }
+            if (gameObject instanceof MetalWall) {
+                ((MetalWall) gameObject).draw(gc);
+            }
+            if (gameObject instanceof Flag) {
+                ((Flag) gameObject).draw(gc);
             }
 
         }
