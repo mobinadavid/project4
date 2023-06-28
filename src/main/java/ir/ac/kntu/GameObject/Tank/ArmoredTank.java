@@ -6,26 +6,25 @@ import javafx.scene.image.Image;
 
 import java.io.File;
 
-public class ArmoredTank extends Tank{
+public class ArmoredTank extends Tank {
     public ArmoredTank(double xPos, double yPos, int health, Direction direction, int firePower) {
         super(xPos, yPos, health, direction, firePower);
     }
 
+    public static Image image;
+
+    public static Image getImage() {
+        return image;
+    }
+
     public void draw(GraphicsContext gc) {
-        gc.drawImage(imageLoader(),getxPos(),getyPos(),36,36);
-    }
-
-    public Image imageLoader() {
-        String address = null;
         switch (getDirection()) {
-            case UP -> address = "object_34.png";
-            case DOWN -> address = "object_37.png";
-            case LEFT -> address = "object_36.png";
-            case RIGHT -> address = "object_39.png";
+            case UP -> image = new Image("file:object_34.png");
+            case DOWN -> image = new Image("file:object_37.png");
+            case LEFT -> image = new Image("file:object_36.png");
+            case RIGHT -> image = new Image("file:object_39.png");
         }
-        File file=new File(address);
-        String address2=file.toURI().toString();
-        return  new javafx.scene.image.Image(address2);
-
+        gc.drawImage(getImage(), getxPos(), getyPos(), 36, 36);
     }
+
 }
