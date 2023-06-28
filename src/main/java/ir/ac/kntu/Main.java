@@ -17,9 +17,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Scene scene = new Scene(new Pane());
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        Game game=new Game();
+        game.start(new Stage());
     }
 }
