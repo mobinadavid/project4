@@ -14,13 +14,13 @@ public class PlayerController implements InputManager{
     private PlayerController() {}
 
     @Override
-    public void handlePlayerMovements(KeyCode keyCode) {
+    public  void handlePlayerMovements(KeyCode keyCode) {
         Game game=Game.getInstance();
        switch (keyCode){
-           case RIGHT -> game.getPlayer().move(30, Direction.RIGHT);
-           case DOWN -> game.getPlayer().move(30,Direction.DOWN);
-           case UP -> game.getPlayer().move(30,Direction.UP);
-           case LEFT -> game.getPlayer().move(30,Direction.LEFT);
+           case RIGHT -> game.getPlayer().move(5, Direction.RIGHT);
+           case DOWN -> game.getPlayer().move(5,Direction.DOWN);
+           case UP -> game.getPlayer().move(5,Direction.UP);
+           case LEFT -> game.getPlayer().move(5,Direction.LEFT);
        }
 
     }

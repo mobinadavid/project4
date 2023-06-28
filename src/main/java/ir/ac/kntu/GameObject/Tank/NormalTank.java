@@ -13,7 +13,8 @@ public class NormalTank extends Tank {
 
     @Override
     public void draw(GraphicsContext gc) {
-    gc.drawImage(imageLoader(),getxPos(),getyPos(),36,36);
+        gc.clearRect(0,0,800,800);
+        gc.drawImage(imageLoader(),getxPos(),getyPos(),36,36);
     }
 
     public Image imageLoader() {
