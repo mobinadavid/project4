@@ -58,8 +58,8 @@ public class Game extends Application {
         MetalWall metalWall2=new MetalWall(400-18-72,400-72,234567);
         RowBrickWall rowBrickWall=new RowBrickWall(400-18-36-20,800-70,1);
         ColumnBrickWall columnBrickWall=new ColumnBrickWall(400-56-18-20,800-70,1);
-        ColumnBrickWall columnBrickWall1=new ColumnBrickWall(400,800-70,1);
-        Flag flag=new Flag(400-18-36,800-40);
+        ColumnBrickWall columnBrickWall1=new ColumnBrickWall(400-20,800-70,1);
+        Flag flag=new Flag(400-18-36-10,800-40);
         gameObjects.add(brickWall1);
         gameObjects.add(normalTank);
         gameObjects.add(playerTank);
