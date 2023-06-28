@@ -37,9 +37,10 @@ public class Game extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.BLACK);
         gc.fillRect(0,0, CANVAS_WIDTH,CANVAS_HEIGHT);
-        NormalTank normalTank=new NormalTank(10,10,1, Direction.LEFT,1);
+        NormalTank normalTank=new NormalTank(10,10,1, Direction.RIGHT,1);
         normalTank.draw(gc);
         PlayerTank playerTank1=new PlayerTank(50,50,3,Direction.DOWN,1);
+        playerTank1.draw(gc);
         Group root=new Group(canvas);
         Scene scene=new Scene(root);
         stage.setScene(scene);

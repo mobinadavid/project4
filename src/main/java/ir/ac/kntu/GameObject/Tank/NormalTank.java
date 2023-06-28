@@ -13,15 +13,15 @@ public class NormalTank extends Tank {
 
     @Override
     public void draw(GraphicsContext gc) {
-    gc.drawImage(imageLoader(),getxPos(),getyPos(),35,35);
+    gc.drawImage(imageLoader(),getxPos(),getyPos(),36,36);
     }
 
     public Image imageLoader() {
         String address = null;
         switch (getDirection()) {
             case UP -> address = "object_8.png";
-            case DOWN -> address = "object_10.png";
-            case LEFT -> address = "object_12.png";
+            case DOWN -> address = "object_12.png";
+            case LEFT -> address = "object_10.png";
             case RIGHT -> address = "object_14.png";
         }
         File file=new File(address);

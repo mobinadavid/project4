@@ -14,7 +14,7 @@ public class PlayerTank extends Tank{
 
     @Override
     public void draw(GraphicsContext gc) {
-        gc.drawImage(imageLoader(),getxPos(),getyPos(),35,35);
+        gc.drawImage(imageLoader(),getxPos(),getyPos(),36,36);
     }
     public Image imageLoader() {
         String address = null;
