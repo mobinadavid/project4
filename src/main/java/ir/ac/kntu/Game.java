@@ -11,6 +11,7 @@ import ir.ac.kntu.GameObject.wall.*;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -51,7 +52,11 @@ public class Game extends Application {
         ArmoredTank armoredTank = new ArmoredTank(100, 10, 2, Direction.DOWN, 2,200);
         BrickWall brickWall=new BrickWall(400-18,400-36,1);
         BrickWall brickWall1=new BrickWall(400-18,400-72-36,1);
+        BrickWall brickWall9=new BrickWall(400-18,400-72-36-36,1);
         MetalWall metalWall=new MetalWall(400-18,400-72,234567);
+        BrickWall brickWall10=new BrickWall(400-18,400,1);
+        BrickWall brickWall11=new BrickWall(400-18-72,400,1);
+        BrickWall brickWall12=new BrickWall(400-18-72,400-72-72,1);
         BrickWall brickWall2=new BrickWall(400-18-36,400-72,1);
         BrickWall brickWall3=new BrickWall(400-18-72,400-36,1);
         BrickWall brickWall4=new BrickWall(400-18-72,400-72-36,1);
@@ -59,10 +64,8 @@ public class Game extends Application {
         BrickWall brickWall5=new BrickWall(400-25,700,1);
         BrickWall brickWall6=new BrickWall(400-25-36,700,1);
         BrickWall brickWall7=new BrickWall(400-25-36-36,700,1);
-
         BrickWall brickWall8=new BrickWall(400-25-36-36-36,700,1);
-
-        //   RowBrickWall rowBrickWall=new RowBrickWall(400-18-30,715,1);
+        //  RowBrickWall rowBrickWall=new RowBrickWall(400-18-30,715,1);
         ColumnBrickWall columnBrickWall=new ColumnBrickWall(400-56-18-20-40,800-70,1);
         ColumnBrickWall columnBrickWall1=new ColumnBrickWall(400-20,800-70,1);
         Flag flag=new Flag(400-18-70,800-40);
@@ -76,6 +79,10 @@ public class Game extends Application {
         gameObjects.add(metalWall2);
         gameObjects.add(brickWall3);
         gameObjects.add(brickWall4);
+        gameObjects.add(brickWall9);
+        gameObjects.add(brickWall10);
+        gameObjects.add(brickWall11);
+        gameObjects.add(brickWall12);
         gameObjects.add(flag);
        // gameObjects.add(rowBrickWall);
         gameObjects.add(columnBrickWall);
@@ -84,7 +91,29 @@ public class Game extends Application {
         gameObjects.add(brickWall6);
         gameObjects.add(brickWall7);
         gameObjects.add(brickWall8);
+
         draw(gc);
+        AnimationTimer animationTimer=new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                System.out.println(armoredTank.getxPos());
+                armoredTank.move(3,armoredTank.getDirection());
+                draw(gc);
+
+            }
+        };
+        AnimationTimer animationTimer1=new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                System.out.println(normalTank.getxPos());
+                normalTank.move(3,normalTank.getDirection());
+                normalTank.draw(gc);
+
+            }
+        };
+        animationTimer.start();
+        animationTimer1.start();
+
         Group root = new Group();
         root.getChildren().add(canvas);
         Scene scene = new Scene(root, Color.BLACK);
@@ -122,6 +151,9 @@ public class Game extends Application {
             }
             if (gameObject instanceof Flag) {
                 ((Flag) gameObject).draw(gc);
+            }
+            if (gameObject instanceof ArmoredTank) {
+                ((ArmoredTank) gameObject).draw(gc);
             }
 
         }
