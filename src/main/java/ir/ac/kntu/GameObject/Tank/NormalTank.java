@@ -8,8 +8,8 @@ import javafx.scene.image.Image;
 import java.io.File;
 
 public class NormalTank extends Tank {
-    public NormalTank(double xPos, double yPos, int health, Direction direction, int firePower) {
-        super(xPos, yPos, health, direction, firePower);
+    public NormalTank(double xPos, double yPos, int health, Direction direction, int firePower,int score) {
+        super(xPos, yPos, health, direction, firePower,score);
     }
 
     public static Image image;

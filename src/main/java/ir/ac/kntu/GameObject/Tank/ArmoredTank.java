@@ -7,8 +7,8 @@ import javafx.scene.image.Image;
 import java.io.File;
 
 public class ArmoredTank extends Tank {
-    public ArmoredTank(double xPos, double yPos, int health, Direction direction, int firePower) {
-        super(xPos, yPos, health, direction, firePower);
+    public ArmoredTank(double xPos, double yPos, int health, Direction direction, int firePower,int score) {
+        super(xPos, yPos, health, direction, firePower,score);
     }
 
     public static Image image;

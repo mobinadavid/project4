@@ -31,7 +31,7 @@ public class Flag extends GameObject {
 
     public void draw(GraphicsContext gc) {
         image = new Image("file:object_69.png");
-        gc.drawImage(getImage(), getxPos(), getyPos(), 30, 40);
+        gc.drawImage(getImage(), getxPos(), getyPos(), 50, 50);
     }
 
     public static Image image;

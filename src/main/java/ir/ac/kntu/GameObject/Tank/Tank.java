@@ -14,12 +14,23 @@ public  abstract class Tank extends GameObject {
     private int firePower;
     private ImageView imageTank;
 
-    public Tank(double xPos, double yPos, int health, Direction direction, int firePower) {
+    private int score;
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public Tank(double xPos, double yPos, int health, Direction direction, int firePower, int score) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.health = health;
         this.direction = direction;
         this.firePower = firePower;
+        this.score=score;
     }
 
     public abstract void draw(GraphicsContext gc) ;

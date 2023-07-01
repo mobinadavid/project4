@@ -31,10 +31,10 @@ import static ir.ac.kntu.Constants.GlobalConstants.CANVAS_WIDTH;
 public class Game extends Application {
     private PlayerTank playerTank;
     private static Game game;
-    ArrayList<GameObject> gameObjects = new ArrayList<>();
+    public static ArrayList<GameObject> gameObjects = new ArrayList<>();
 
     public Game() {
-        playerTank = new PlayerTank(100, 200, 3, Direction.UP, 1);
+        playerTank = new PlayerTank(200, 700, 3, Direction.UP, 1,0);
         game = this;
     }
 
@@ -47,8 +47,8 @@ public class Game extends Application {
         Canvas canvas = new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-        NormalTank normalTank = new NormalTank(10, 10, 1, Direction.RIGHT, 1);
-        ArmoredTank armoredTank = new ArmoredTank(100, 10, 2, Direction.DOWN, 2);
+        NormalTank normalTank = new NormalTank(10, 10, 1, Direction.RIGHT, 1,100);
+        ArmoredTank armoredTank = new ArmoredTank(100, 10, 2, Direction.DOWN, 2,200);
         BrickWall brickWall=new BrickWall(400-18,400-36,1);
         BrickWall brickWall1=new BrickWall(400-18,400-72-36,1);
         MetalWall metalWall=new MetalWall(400-18,400-72,234567);
@@ -56,10 +56,16 @@ public class Game extends Application {
         BrickWall brickWall3=new BrickWall(400-18-72,400-36,1);
         BrickWall brickWall4=new BrickWall(400-18-72,400-72-36,1);
         MetalWall metalWall2=new MetalWall(400-18-72,400-72,234567);
-        RowBrickWall rowBrickWall=new RowBrickWall(400-18-36-20,800-70,1);
-        ColumnBrickWall columnBrickWall=new ColumnBrickWall(400-56-18-20,800-70,1);
+        BrickWall brickWall5=new BrickWall(400-25,700,1);
+        BrickWall brickWall6=new BrickWall(400-25-36,700,1);
+        BrickWall brickWall7=new BrickWall(400-25-36-36,700,1);
+
+        BrickWall brickWall8=new BrickWall(400-25-36-36-36,700,1);
+
+        //   RowBrickWall rowBrickWall=new RowBrickWall(400-18-30,715,1);
+        ColumnBrickWall columnBrickWall=new ColumnBrickWall(400-56-18-20-40,800-70,1);
         ColumnBrickWall columnBrickWall1=new ColumnBrickWall(400-20,800-70,1);
-        Flag flag=new Flag(400-18-36-10,800-40);
+        Flag flag=new Flag(400-18-70,800-40);
         gameObjects.add(brickWall1);
         gameObjects.add(normalTank);
         gameObjects.add(playerTank);
@@ -71,9 +77,13 @@ public class Game extends Application {
         gameObjects.add(brickWall3);
         gameObjects.add(brickWall4);
         gameObjects.add(flag);
-        gameObjects.add(rowBrickWall);
+       // gameObjects.add(rowBrickWall);
         gameObjects.add(columnBrickWall);
         gameObjects.add(columnBrickWall1);
+        gameObjects.add(brickWall5);
+        gameObjects.add(brickWall6);
+        gameObjects.add(brickWall7);
+        gameObjects.add(brickWall8);
         draw(gc);
         Group root = new Group();
         root.getChildren().add(canvas);
