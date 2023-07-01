@@ -6,6 +6,7 @@ import ir.ac.kntu.GameObject.Tank.LuckyTank;
 import ir.ac.kntu.GameObject.Tank.NormalTank;
 import ir.ac.kntu.GameObject.Tank.Tank;
 import ir.ac.kntu.GameObject.wall.BrickWall;
+import ir.ac.kntu.GameObject.wall.ColumnBrickWall;
 import ir.ac.kntu.GameObject.wall.MetalWall;
 import ir.ac.kntu.GameObject.wall.Wall;
 import jdk.jfr.Label;
@@ -28,6 +29,12 @@ public class Player {
                 if (gameObject instanceof BrickWall) {
                     if (xTank > ((BrickWall) gameObject).getxPos() - 34 && xTank < ((BrickWall) gameObject).getxPos() + 34
                             && yTank > ((BrickWall) gameObject).getyPos() - 34 && yTank < ((BrickWall) gameObject).getyPos() + 34) {
+                        return false;
+                    }
+                }
+                if (gameObject instanceof ColumnBrickWall) {
+                    if (xTank > ((BrickWall) gameObject).getxPos() - 34 && xTank < ((BrickWall) gameObject).getxPos() + 34
+                            && yTank > ((BrickWall) gameObject).getyPos() - 34 && yTank < ((BrickWall) gameObject).getyPos() + 44) {
                         return false;
                     }
                 }

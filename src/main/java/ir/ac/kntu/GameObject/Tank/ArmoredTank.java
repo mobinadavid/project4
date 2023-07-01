@@ -2,7 +2,11 @@ package ir.ac.kntu.GameObject.Tank;
 
 import ir.ac.kntu.Constants.Direction;
 import ir.ac.kntu.Constants.GlobalConstants;
+import ir.ac.kntu.Game;
+import ir.ac.kntu.GameObject.GameObject;
 import ir.ac.kntu.GameObject.Player;
+import ir.ac.kntu.GameObject.wall.BrickWall;
+import ir.ac.kntu.GameObject.wall.MetalWall;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -56,7 +60,7 @@ public class ArmoredTank extends Tank {
 
     public void move(int step, Direction direction) {
         setDirection(direction);
-        if (Player.isCollided(this)) {
+        if (NormalTank.isCollided(this)) {
             switch (direction) {
                 case RIGHT -> setxPos(getxPos() + step);
                 case LEFT -> setxPos(getxPos() - step);
@@ -79,11 +83,12 @@ public class ArmoredTank extends Tank {
         }
     }
 
+
     class asd extends TimerTask {
 
         @Override
         public void run() {
-            randomWay();
+           randomWay();
         }
     }
 

@@ -114,6 +114,12 @@ public class NormalTank extends Tank {
                         return false;
                     }
                 }
+                if (gameObject instanceof PlayerTank) {
+                    if (xTank > ((PlayerTank) gameObject).getxPos() - 34 && xTank < ((PlayerTank) gameObject).getxPos() + 34
+                            && yTank > ((PlayerTank) gameObject).getyPos() - 34 && yTank < ((PlayerTank) gameObject).getyPos() + 34) {
+                        return false;
+                    }
+                }
 
             }
         }
