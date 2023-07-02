@@ -55,9 +55,6 @@ public class Game extends Application {
         BrickWall brickWall1 = new BrickWall(400 - 18, 400 - 72 - 36, 1);
         BrickWall brickWall9 = new BrickWall(400 - 18, 400 - 72 - 36 - 36, 1);
         MetalWall metalWall = new MetalWall(400 - 18, 400 - 72, 234567);
-        BrickWall brickWall10 = new BrickWall(400 - 18, 400, 1);
-        BrickWall brickWall11 = new BrickWall(400 - 18 - 72, 400, 1);
-        BrickWall brickWall12 = new BrickWall(400 - 18 - 72, 400 - 72 - 72, 1);
         BrickWall brickWall2 = new BrickWall(400 - 18 - 36, 400 - 72, 1);
         BrickWall brickWall3 = new BrickWall(400 - 18 - 72, 400 - 36, 1);
         BrickWall brickWall4 = new BrickWall(400 - 18 - 72, 400 - 72 - 36, 1);
@@ -66,13 +63,30 @@ public class Game extends Application {
         BrickWall brickWall6 = new BrickWall(400 - 25 - 36, 700, 1);
         BrickWall brickWall7 = new BrickWall(400 - 25 - 36 - 36, 700, 1);
         BrickWall brickWall8 = new BrickWall(400 - 25 - 36 - 36 - 36, 700, 1);
-        //  RowBrickWall rowBrickWall=new RowBrickWall(400-18-30,715,1);
         ColumnBrickWall columnBrickWall = new ColumnBrickWall(400 - 56 - 18 - 20 - 40, 800 - 70, 1);
         ColumnBrickWall columnBrickWall1 = new ColumnBrickWall(400 - 20, 800 - 70, 1);
         Flag flag = new Flag(400 - 18 - 70, 800 - 40);
         LuckyTank luckyTank = new LuckyTank(600, 10, 1, Direction.DOWN, 2, 200);
         LuckyTank luckyTank1 = new LuckyTank(700, 10, 1, Direction.DOWN, 2, 100);
-
+        MetalWall metalWall3 = new MetalWall(400 - 18 - 72, 100, 234567);
+        MetalWall metalWall4 = new MetalWall(400 - 18 - 72, 100-36, 234567);
+        MetalWall metalWall5=new MetalWall(400-18-72,100+36,123456);
+        MetalWall metalWall6=new MetalWall(400-18-36,100,123456);
+        MetalWall metalWall7 = new MetalWall(400 - 18, 100, 234567);
+        MetalWall metalWall8 = new MetalWall(400 - 18, 100-36, 234567);
+        MetalWall metalWall9=new MetalWall(400-18,100+36,123456);
+        RowBrickWall rowBrickWall=new RowBrickWall(500,400,1);
+        RowBrickWall rowBrickWall1 = new RowBrickWall(500, 340, 1);
+        RowBrickWall rowBrickWall2 = new RowBrickWall(500, 280, 1);
+        RowBrickWall rowBrickWall3 = new RowBrickWall(650, 400 , 1);
+        RowBrickWall rowBrickWall4 = new RowBrickWall(650, 340, 1);
+        RowBrickWall rowBrickWall5 = new RowBrickWall(650, 280, 1);
+        RowBrickWall rowBrickWall6 = new RowBrickWall(170, 400 , 1);
+        RowBrickWall rowBrickWall7 = new RowBrickWall(170, 340, 1);
+        RowBrickWall rowBrickWall8 = new RowBrickWall(170, 280, 1);
+        RowBrickWall rowBrickWall9 = new RowBrickWall(20, 400 , 1);
+        RowBrickWall rowBrickWall10 = new RowBrickWall(20, 340, 1);
+        RowBrickWall rowBrickWall11 = new RowBrickWall(20, 280, 1);
         gameObjects.add(brickWall1);
         gameObjects.add(normalTank);
         gameObjects.add(playerTank);
@@ -83,12 +97,7 @@ public class Game extends Application {
         gameObjects.add(metalWall2);
         gameObjects.add(brickWall3);
         gameObjects.add(brickWall4);
-        gameObjects.add(brickWall9);
-        gameObjects.add(brickWall10);
-        gameObjects.add(brickWall11);
-        gameObjects.add(brickWall12);
         gameObjects.add(flag);
-        // gameObjects.add(rowBrickWall);
         gameObjects.add(columnBrickWall);
         gameObjects.add(columnBrickWall1);
         gameObjects.add(brickWall5);
@@ -97,6 +106,27 @@ public class Game extends Application {
         gameObjects.add(brickWall8);
         gameObjects.add(luckyTank);
         gameObjects.add(luckyTank1);
+        gameObjects.add(metalWall3);
+        gameObjects.add(metalWall4);
+        gameObjects.add(metalWall5);
+        gameObjects.add(metalWall6);
+        gameObjects.add(metalWall7);
+        gameObjects.add(metalWall8);
+        gameObjects.add(metalWall9);
+       // gameObjects.add(brickWall9);
+        gameObjects.add(rowBrickWall);
+        gameObjects.add(rowBrickWall1);
+        gameObjects.add(rowBrickWall2);
+        gameObjects.add(rowBrickWall3);
+        gameObjects.add(rowBrickWall4);
+        gameObjects.add(rowBrickWall5);
+        gameObjects.add(rowBrickWall6);
+        gameObjects.add(rowBrickWall7);
+        gameObjects.add(rowBrickWall8);
+        gameObjects.add(rowBrickWall9);
+        gameObjects.add(rowBrickWall10);
+        gameObjects.add(rowBrickWall11);
+
 
         draw(gc);
         AnimationTimer animationTimer = new AnimationTimer() {

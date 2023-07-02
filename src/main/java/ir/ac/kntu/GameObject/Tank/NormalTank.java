@@ -5,7 +5,9 @@ import ir.ac.kntu.Constants.GlobalConstants;
 import ir.ac.kntu.Game;
 import ir.ac.kntu.GameObject.GameObject;
 import ir.ac.kntu.GameObject.wall.BrickWall;
+import ir.ac.kntu.GameObject.wall.ColumnBrickWall;
 import ir.ac.kntu.GameObject.wall.MetalWall;
+import ir.ac.kntu.GameObject.wall.RowBrickWall;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -120,7 +122,18 @@ public class NormalTank extends Tank {
                         return false;
                     }
                 }
-
+                if (gameObject instanceof ColumnBrickWall) {
+                    if (xTank > ((BrickWall) gameObject).getxPos() - 34 && xTank < ((BrickWall) gameObject).getxPos() + 34
+                            && yTank > ((BrickWall) gameObject).getyPos() - 34 && yTank < ((BrickWall) gameObject).getyPos() + 44) {
+                        return false;
+                    }
+                }
+                if (gameObject instanceof RowBrickWall) {
+                    if (xTank > ((BrickWall) gameObject).getxPos() - 34 && xTank < ((BrickWall) gameObject).getxPos() + 34
+                            && yTank > ((BrickWall) gameObject).getyPos() - 34 && yTank < ((BrickWall) gameObject).getyPos() + 58) {
+                        return false;
+                    }
+                }
             }
         }
         return true;

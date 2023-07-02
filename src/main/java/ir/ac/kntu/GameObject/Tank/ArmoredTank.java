@@ -49,10 +49,10 @@ public class ArmoredTank extends Tank {
 
     public void draw(GraphicsContext gc) {
         switch (getDirection()) {
-            case UP -> image = new Image("file:object_34.png");
-            case DOWN -> image = new Image("file:object_37.png");
-            case LEFT -> image = new Image("file:object_36.png");
-            case RIGHT -> image = new Image("file:object_39.png");
+            case UP -> image = new Image("file:object_58.png");
+            case DOWN -> image = new Image("file:object_62.png");
+            case LEFT -> image = new Image("file:object_60.png");
+            case RIGHT -> image = new Image("file:object_64.png");
         }
         gc.drawImage(getImage(), getxPos(), getyPos(), 36, 36);
     }
@@ -88,7 +88,7 @@ public class ArmoredTank extends Tank {
 
         @Override
         public void run() {
-           randomWay();
+            randomWay();
         }
     }
 

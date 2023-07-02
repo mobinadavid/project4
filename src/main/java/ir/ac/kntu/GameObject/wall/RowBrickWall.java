@@ -10,7 +10,7 @@ public class RowBrickWall extends BrickWall {
 
     public void draw(GraphicsContext gc) {
         image = new Image("file:object_16.png");
-        gc.drawImage(getImage(), getxPos(), getyPos(), 70, 25);
+        gc.drawImage(getImage(), getxPos(), getyPos(), 36, 60);
     }
 
     public static Image image;

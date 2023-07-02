@@ -32,7 +32,7 @@ public class PlayerTank extends Tank {
     }
 
     public void move(int step, Direction direction) {
-            setDirection(direction);
+        setDirection(direction);
         if (Player.isCollided(this)) {
             switch (direction) {
                 case RIGHT -> setxPos(getxPos() + step);
@@ -42,19 +42,19 @@ public class PlayerTank extends Tank {
 
             }
         }
-            if (getxPos() < 0) {
-                setxPos(0);
-            }
-            if (getxPos() + 36 > GlobalConstants.CANVAS_HEIGHT) {
-                setxPos(GlobalConstants.CANVAS_WIDTH - 36);
-            }
-            if (getyPos() + 36 > GlobalConstants.CANVAS_HEIGHT) {
-                setyPos(GlobalConstants.CANVAS_HEIGHT - 36);
-            }
-            if (getyPos() < 0) {
-                setyPos(0);
-            }
+        if (getxPos() < 0) {
+            setxPos(0);
         }
+        if (getxPos() + 36 > GlobalConstants.CANVAS_HEIGHT) {
+            setxPos(GlobalConstants.CANVAS_WIDTH - 36);
+        }
+        if (getyPos() + 36 > GlobalConstants.CANVAS_HEIGHT) {
+            setyPos(GlobalConstants.CANVAS_HEIGHT - 36);
+        }
+        if (getyPos() < 0) {
+            setyPos(0);
+        }
+    }
 
 
 }
