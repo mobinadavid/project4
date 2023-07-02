@@ -122,12 +122,7 @@ public class NormalTank extends Tank {
                         return false;
                     }
                 }
-                if (gameObject instanceof ColumnBrickWall) {
-                    if (xTank > ((BrickWall) gameObject).getxPos() - 34 && xTank < ((BrickWall) gameObject).getxPos() + 34
-                            && yTank > ((BrickWall) gameObject).getyPos() - 34 && yTank < ((BrickWall) gameObject).getyPos() + 44) {
-                        return false;
-                    }
-                }
+
                 if (gameObject instanceof RowBrickWall) {
                     if (xTank > ((BrickWall) gameObject).getxPos() - 34 && xTank < ((BrickWall) gameObject).getxPos() + 34
                             && yTank > ((BrickWall) gameObject).getyPos() - 34 && yTank < ((BrickWall) gameObject).getyPos() + 58) {
