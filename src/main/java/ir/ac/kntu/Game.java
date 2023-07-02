@@ -165,7 +165,6 @@ public class Game extends Application {
 //            l.consume();
 //            Menu.menu(stage);
 //        });
-        Menu.menu(stage);
         draw(gc);
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override

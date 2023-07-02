@@ -13,23 +13,23 @@ import javafx.stage.Stage;
 public class Menu {
 
 
-    public static void menu(Stage primaryStage) {
+    public static void menu(Stage primaryStage,Scene scene1) {
         // Create a VBox to hold the menu buttons
         VBox menu = new VBox();
         menu.setPadding(new Insets(10));
         menu.setSpacing(10);
-
+        Game game=new Game();
         // Create 10 menu buttons with different colors
-        Button button1 = createButton("Option 1", Color.RED);
-        Button button2 = createButton("Option 2", Color.ORANGE);
-        Button button3 = createButton("Option 3", Color.YELLOW);
-        Button button4 = createButton("Option 4", Color.GREEN);
-        Button button5 = createButton("Option 5", Color.BLUE);
-        Button button6 = createButton("Option 6", Color.PURPLE);
-        Button button7 = createButton("Option 7", Color.PINK);
-        Button button8 = createButton("Option 8", Color.BROWN);
-        Button button9 = createButton("Option 9", Color.GRAY);
-        Button button10 = createButton("Option 10", Color.BLACK);
+        Button button1 = createButton("Option 1", primaryStage,scene1);
+        Button button2 = createButton("Option 2", primaryStage,scene1);
+        Button button3 = createButton("Option 3", primaryStage,scene1);
+        Button button4 = createButton("Option 4", primaryStage,scene1);
+        Button button5 = createButton("Option 5", primaryStage,scene1);
+        Button button6 = createButton("Option 6", primaryStage,scene1);
+        Button button7 = createButton("Option 7", primaryStage,scene1);
+        Button button8 = createButton("Option 8", primaryStage,scene1);
+        Button button9 = createButton("Option 9", primaryStage,scene1);
+        Button button10 = createButton("Option 10", primaryStage,scene1);
 
         // Add the menu buttons to the VBox
         menu.getChildren().addAll(button1, button2, button3, button4, button5, button6, button7, button8, button9, button10);
@@ -49,10 +49,15 @@ public class Menu {
 
     }
 
-    public static Button createButton(String text, Color color) {
+    public static Button createButton(String text,Stage stage,Scene scene) {
         Button button = new Button(text);
-        button.setStyle("-fx-background-color: " + color.toString().replace("0x", "#"));
-        button.setOnAction(event -> button.setStyle("-fx-background-color: " + color.invert().toString().replace("0x", "#")));
+        button.setOnAction(event -> {
+            // Create a new Scene for the game
+            stage.setScene(scene);
+                Game game=new Game();
+            stage.hide();
+          stage.show();;
+        });
         return button;
     }
 
