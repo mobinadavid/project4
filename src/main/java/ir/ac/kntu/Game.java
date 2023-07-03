@@ -15,13 +15,16 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -161,10 +164,7 @@ public class Game extends Application {
             l.consume();
             runningProgram(stage);
         });
-//        .seto(l -> {
-//            l.consume();
-//            Menu.menu(stage);
-//        });
+
         draw(gc);
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override
@@ -211,9 +211,8 @@ public class Game extends Application {
             PlayerController.getInstance().handlePlayerMovements(keyCode);
             draw(gc);
         });
+        Menu. battleMenu(stage,scene);
 
-        stage.setScene(scene);
-        stage.show();
     }
 
     public PlayerTank getPlayer() {

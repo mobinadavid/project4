@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
 public class GameState {
      public static  Boolean result;
    public  static boolean quit(){

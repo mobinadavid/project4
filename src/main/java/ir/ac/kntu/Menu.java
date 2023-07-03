@@ -2,63 +2,79 @@ package ir.ac.kntu;
 
 import com.sun.javafx.tk.quantum.PrimaryTimer;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
 public class Menu {
 
+    public static Boolean result;
+public  static void battleMenu(Stage stage,Scene scene){
+    Stage primaryStage=new Stage();
+    Image image = new Image("file:Battle.jpg");
+    ImageView imageView = new ImageView(image);
+    Rectangle clickableArea = new Rectangle(400, 400, 30, 30);
+    clickableArea.setFill(Color.RED);
+    clickableArea.setOnMouseClicked(e -> {
+       menu(stage,scene);
+       primaryStage.close();;
 
-    public static void menu(Stage primaryStage,Scene scene1) {
-        // Create a VBox to hold the menu buttons
+    });
+    StackPane root = new StackPane();
+    root.getChildren().addAll(imageView, clickableArea);
+    Scene scene1 = new Scene(root, 900, 700);
+    primaryStage.setTitle("Welcome Scene");
+    primaryStage.setScene(scene1);
+    primaryStage.show();
+}
+    public static void menu(Stage stage, Scene scene1) {
+        Image backgroundImage = new Image("file:images.jfif");
+        BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
+                new BackgroundSize(100, 100, true, true, true, false));
         VBox menu = new VBox();
-        menu.setPadding(new Insets(10));
-        menu.setSpacing(10);
-        Game game=new Game();
-        // Create 10 menu buttons with different colors
-        Button button1 = createButton("Option 1", primaryStage,scene1);
-        Button button2 = createButton("Option 2", primaryStage,scene1);
-        Button button3 = createButton("Option 3", primaryStage,scene1);
-        Button button4 = createButton("Option 4", primaryStage,scene1);
-        Button button5 = createButton("Option 5", primaryStage,scene1);
-        Button button6 = createButton("Option 6", primaryStage,scene1);
-        Button button7 = createButton("Option 7", primaryStage,scene1);
-        Button button8 = createButton("Option 8", primaryStage,scene1);
-        Button button9 = createButton("Option 9", primaryStage,scene1);
-        Button button10 = createButton("Option 10", primaryStage,scene1);
+        menu.setAlignment(Pos.CENTER);
+        menu.setPadding(new Insets(50, 0, 0, 0));
+        menu.setSpacing(30);
+        Stage primaryStage = new Stage();
 
-        // Add the menu buttons to the VBox
-        menu.getChildren().addAll(button1, button2, button3, button4, button5, button6, button7, button8, button9, button10);
-
-        // Create a Scene with the VBox as the root node
-        Scene scene = new Scene(menu, 300, 500);
-
-        // Set the title of the Stage to "Game Menu"
+        for (int i = 1; i <= 10; i++) {
+            Button button = new Button("STAGE " + i);
+            button.setShape(new Rectangle(50, 25));
+            button.setStyle("-fx-background-color: #777777; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-family: Arial;");
+            button.setStyle("-fx-background-color: #777777; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-family: Arial;");
+            button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: darkGray; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-family: 'Cambria';"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #777777; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-family: 'Cambria';"));
+            button.setOnMousePressed(e -> button.setEffect(new DropShadow()));
+            button.setOnMouseReleased(e -> button.setEffect(null));
+            menu.getChildren().add(button);
+            button.setOnAction(l -> {
+                stage.show();
+                stage.setScene(scene1);
+                primaryStage.close();
+            });
+        }
+        StackPane root = new StackPane();
+        root.setBackground(new Background(background));
+        root.getChildren().add(menu);
+        Scene scene = new Scene(root, 800, 800);
         primaryStage.setTitle("Game Menu");
-        button1.setOnAction(l->{
-
-        });
         primaryStage.setScene(scene);
-
-        // Show the Stage
         primaryStage.show();
 
-    }
 
-    public static Button createButton(String text,Stage stage,Scene scene) {
-        Button button = new Button(text);
-        button.setOnAction(event -> {
-            // Create a new Scene for the game
-            stage.setScene(scene);
-                Game game=new Game();
-            stage.hide();
-          stage.show();;
-        });
-        return button;
     }
 
 
