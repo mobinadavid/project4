@@ -12,11 +12,14 @@ import java.util.TimerTask;
 public class LuckyTank extends Tank {
     public LuckyTank(double xPos, double yPos, int health, Direction direction, int firePower, int score) {
         super(xPos, yPos, health, direction, firePower, score);
-        timer.schedule(new asd(), 0, 1000);
+        timer.schedule(new RunTank(), 0, 1000);
     }
 
     Timer timer = new Timer();
+
+
     public static Image image;
+
 
     public static Image getImage() {
         return image;
@@ -40,7 +43,7 @@ public class LuckyTank extends Tank {
 
     }
 
-    class asd extends TimerTask {
+    class RunTank extends TimerTask {
 
         @Override
         public void run() {
@@ -56,6 +59,7 @@ public class LuckyTank extends Tank {
                 case LEFT -> setxPos(getxPos() - step);
                 case UP -> setyPos(getyPos() - step);
                 case DOWN -> setyPos(getyPos() + step);
+                default -> setyPos(getyPos() + step);
 
             }
             if (getxPos() < 0) {
@@ -81,6 +85,7 @@ public class LuckyTank extends Tank {
                 case DOWN -> image = new Image("file:object_237.png");
                 case LEFT -> image = new Image("file:object_235.png");
                 case RIGHT -> image = new Image("file:object_239.png");
+                default -> image = new Image("file:object_239.png");
             }
         }
         if (this.getScore() == 200) {
@@ -89,6 +94,7 @@ public class LuckyTank extends Tank {
                 case DOWN -> image = new Image("file:object_262.png");
                 case LEFT -> image = new Image("file:object_261.png");
                 case RIGHT -> image = new Image("file:object_264.png");
+                default -> image = new Image("file:object_264.png");
             }
         }
         gc.drawImage(getImage(), getxPos(), getyPos(), 36, 36);

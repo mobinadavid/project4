@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 
 public class Flag extends GameObject {
     private double xPos;
+
     private double yPos;
 
     public Flag(double xPos, double yPos) {

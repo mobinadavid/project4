@@ -2,15 +2,9 @@ package ir.ac.kntu.GameObject.Tank;
 
 import ir.ac.kntu.Constants.Direction;
 import ir.ac.kntu.Constants.GlobalConstants;
-import ir.ac.kntu.Game;
-import ir.ac.kntu.GameObject.GameObject;
-import ir.ac.kntu.GameObject.Player;
-import ir.ac.kntu.GameObject.wall.BrickWall;
-import ir.ac.kntu.GameObject.wall.MetalWall;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-import java.io.File;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,7 +14,7 @@ public class ArmoredTank extends Tank {
 
     public ArmoredTank(double xPos, double yPos, int health, Direction direction, int firePower, int score) {
         super(xPos, yPos, health, direction, firePower, score);
-        timer.schedule(new asd(), 0, 1000);
+        timer.schedule(new RunTank(), 0, 1000);
     }
 
     public void randomWay() {
@@ -53,6 +47,7 @@ public class ArmoredTank extends Tank {
             case DOWN -> image = new Image("file:object_62.png");
             case LEFT -> image = new Image("file:object_60.png");
             case RIGHT -> image = new Image("file:object_64.png");
+            default -> image = new Image("file:object_64.png");
         }
         gc.drawImage(getImage(), getxPos(), getyPos(), 36, 36);
     }
@@ -66,6 +61,7 @@ public class ArmoredTank extends Tank {
                 case LEFT -> setxPos(getxPos() - step);
                 case UP -> setyPos(getyPos() - step);
                 case DOWN -> setyPos(getyPos() + step);
+                default -> setyPos(getyPos() + step);
 
             }
         }
@@ -84,7 +80,7 @@ public class ArmoredTank extends Tank {
     }
 
 
-    class asd extends TimerTask {
+    class RunTank extends TimerTask {
 
         @Override
         public void run() {

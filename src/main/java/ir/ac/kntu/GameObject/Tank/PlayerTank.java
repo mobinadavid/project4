@@ -27,6 +27,7 @@ public class PlayerTank extends Tank {
             case DOWN -> image = new Image("file:object_4.png");
             case LEFT -> image = new Image("file:object_2.png");
             case RIGHT -> image = new Image("file:object_6.png");
+            default ->  image = new Image("file:object_6.png");
         }
         gc.drawImage(getImage(), getxPos(), getyPos(), GlobalConstants.ICON_HEIGHT, GlobalConstants.ICON_WIDTH);
     }
@@ -39,6 +40,7 @@ public class PlayerTank extends Tank {
                 case LEFT -> setxPos(getxPos() - step);
                 case UP -> setyPos(getyPos() - step);
                 case DOWN -> setyPos(getyPos() + step);
+                default -> setyPos(getyPos() + step);
 
             }
         }

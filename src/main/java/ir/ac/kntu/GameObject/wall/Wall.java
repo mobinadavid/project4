@@ -5,6 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class Wall extends GameObject {
     private double xPos;
+
     private double yPos;
 
     public Wall(double xPos, double yPos, int health) {

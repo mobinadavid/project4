@@ -21,44 +21,43 @@ import javafx.stage.Stage;
 public class Menu {
 
     public static Boolean result;
-public  static void battleMenu(Stage stage,Scene scene){
-    Stage primaryStage=new Stage();
-    Image image = new Image("file:Battle.jpg");
-    ImageView imageView = new ImageView(image);
-    Rectangle clickableArea = new Rectangle(400, 400, 30, 30);
-    clickableArea.setFill(Color.RED);
-    clickableArea.setOnMouseClicked(e -> {
-       menu(stage,scene);
-       primaryStage.close();;
 
-    });
-    StackPane root = new StackPane();
-    root.getChildren().addAll(imageView, clickableArea);
-    Scene scene1 = new Scene(root, 900, 700);
-    primaryStage.setTitle("Welcome Scene");
-    primaryStage.setScene(scene1);
-    primaryStage.show();
-}
+    public static void battleMenu(Stage stage, Scene scene) {
+        Stage primaryStage = new Stage();
+        Image image = new Image("file:Battle.jpg");
+        ImageView imageView = new ImageView(image);
+        Rectangle clickableArea = new Rectangle(100, 100, 200, 300);
+        clickableArea.setFill(Color.TRANSPARENT);
+        clickableArea.setOnMouseClicked(e -> {
+            menu(stage, scene);
+            primaryStage.close();
+            ;
+
+        });
+        StackPane root = new StackPane();
+        root.getChildren().addAll(imageView, clickableArea);
+        Scene scene1 = new Scene(root, 900, 700);
+        primaryStage.setTitle("Welcome Scene");
+        primaryStage.setScene(scene1);
+
+        primaryStage.show();
+    }
+
     public static void menu(Stage stage, Scene scene1) {
         Image backgroundImage = new Image("file:images.jfif");
-        BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.REPEAT,
-                BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
-                new BackgroundSize(100, 100, true, true, true, false));
+        BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, new BackgroundSize(100, 100, true, true, true, false));
         VBox menu = new VBox();
         menu.setAlignment(Pos.CENTER);
         menu.setPadding(new Insets(50, 0, 0, 0));
         menu.setSpacing(30);
         Stage primaryStage = new Stage();
-
         for (int i = 1; i <= 10; i++) {
             Button button = new Button("STAGE " + i);
-            button.setShape(new Rectangle(50, 25));
             button.setStyle("-fx-background-color: #777777; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-family: Arial;");
             button.setStyle("-fx-background-color: #777777; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-family: Arial;");
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: darkGray; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-family: 'Cambria';"));
             button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #777777; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-family: 'Cambria';"));
             button.setOnMousePressed(e -> button.setEffect(new DropShadow()));
-            button.setOnMouseReleased(e -> button.setEffect(null));
             menu.getChildren().add(button);
             button.setOnAction(l -> {
                 stage.show();
@@ -73,8 +72,6 @@ public  static void battleMenu(Stage stage,Scene scene){
         primaryStage.setTitle("Game Menu");
         primaryStage.setScene(scene);
         primaryStage.show();
-
-
     }
 
 

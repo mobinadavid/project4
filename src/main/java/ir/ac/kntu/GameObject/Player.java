@@ -1,12 +1,11 @@
 package ir.ac.kntu.GameObject;
 
-import ir.ac.kntu.Game;
 import ir.ac.kntu.GameObject.Tank.ArmoredTank;
 import ir.ac.kntu.GameObject.Tank.LuckyTank;
 import ir.ac.kntu.GameObject.Tank.NormalTank;
 import ir.ac.kntu.GameObject.Tank.Tank;
 import ir.ac.kntu.GameObject.wall.*;
-import jdk.jfr.Label;
+import ir.ac.kntu.Main;
 
 public class Player {
 
@@ -19,9 +18,10 @@ public class Player {
             case LEFT -> xTank -= 5;
             case UP -> yTank -= 5;
             case DOWN -> yTank += 5;
+            default -> yTank += 5;
 
         }
-        for (GameObject gameObject : Game.gameObjects) {
+        for (GameObject gameObject : Main.Game.gameObjects) {
             if (!gameObject.equals(tank)) {
                 if (gameObject instanceof BrickWall) {
                     if (xTank > ((BrickWall) gameObject).getxPos() - 34 && xTank < ((BrickWall) gameObject).getxPos() + 34

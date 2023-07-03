@@ -6,12 +6,17 @@ import javafx.scene.canvas.GraphicsContext;
 
 import javax.swing.text.html.ImageView;
 
-public  abstract class Tank extends GameObject {
+public abstract class Tank extends GameObject {
     private double xPos;
+
     private double yPos;
+
     private int health;
+
     private Direction direction;
+
     private int firePower;
+
     private ImageView imageTank;
 
     private int score;
@@ -30,10 +35,10 @@ public  abstract class Tank extends GameObject {
         this.health = health;
         this.direction = direction;
         this.firePower = firePower;
-        this.score=score;
+        this.score = score;
     }
 
-    public abstract void draw(GraphicsContext gc) ;
+    public abstract void draw(GraphicsContext gc);
 
 
     public Direction getDirection() {

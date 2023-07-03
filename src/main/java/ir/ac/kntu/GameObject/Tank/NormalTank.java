@@ -2,16 +2,15 @@ package ir.ac.kntu.GameObject.Tank;
 
 import ir.ac.kntu.Constants.Direction;
 import ir.ac.kntu.Constants.GlobalConstants;
-import ir.ac.kntu.Game;
 import ir.ac.kntu.GameObject.GameObject;
 import ir.ac.kntu.GameObject.wall.BrickWall;
 import ir.ac.kntu.GameObject.wall.ColumnBrickWall;
 import ir.ac.kntu.GameObject.wall.MetalWall;
 import ir.ac.kntu.GameObject.wall.RowBrickWall;
+import ir.ac.kntu.Main;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-import java.io.File;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,7 +20,7 @@ public class NormalTank extends Tank {
 
     public NormalTank(double xPos, double yPos, int health, Direction direction, int firePower, int score) {
         super(xPos, yPos, health, direction, firePower, score);
-        timer.schedule(new asd(), 0, 1000);
+        timer.schedule(new RunTank(), 0, 1000);
     }
 
     public static Image image;
@@ -37,6 +36,7 @@ public class NormalTank extends Tank {
             case DOWN -> image = new Image("file:object_12.png");
             case LEFT -> image = new Image("file:object_10.png");
             case RIGHT -> image = new Image("file:object_14.png");
+            default ->  image = new Image("file:object_14.png");
         }
         gc.drawImage(getImage(), getxPos(), getyPos(), 36, 36);
     }
@@ -59,7 +59,7 @@ public class NormalTank extends Tank {
 
     }
 
-    class asd extends TimerTask {
+    class RunTank extends TimerTask {
 
         @Override
         public void run() {
@@ -75,6 +75,7 @@ public class NormalTank extends Tank {
                 case LEFT -> setxPos(getxPos() - step);
                 case UP -> setyPos(getyPos() - step);
                 case DOWN -> setyPos(getyPos() + step);
+                default ->  setyPos(getyPos() + step);
 
             }
             if (getxPos() < 0) {
@@ -100,9 +101,10 @@ public class NormalTank extends Tank {
             case LEFT -> xTank -= 5;
             case UP -> yTank -= 5;
             case DOWN -> yTank += 5;
+            default -> yTank += 5;
 
         }
-        for (GameObject gameObject : Game.gameObjects) {
+        for (GameObject gameObject : Main.Game.gameObjects) {
             if (!gameObject.equals(tank)) {
                 if (gameObject instanceof BrickWall) {
                     if (xTank > ((BrickWall) gameObject).getxPos() - 34 && xTank < ((BrickWall) gameObject).getxPos() + 34
