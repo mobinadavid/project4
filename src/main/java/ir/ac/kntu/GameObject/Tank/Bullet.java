@@ -1,6 +1,8 @@
 package ir.ac.kntu.GameObject.Tank;
 
-public class Bullet {
+import ir.ac.kntu.GameObject.GameObject;
+
+public class Bullet extends GameObject {
 
 
 
